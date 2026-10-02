@@ -1,6 +1,6 @@
 {
   "name": "ngx-mail-box",
-  "version": "1.0.0",
+  "version": "0.0.1",
   "description": "Angular Gmail-like Threaded Messaging Box Component Library",
   "scripts": {
     "build": "ng build ngx-mail-box",
