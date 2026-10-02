@@ -1,27 +1,43 @@
 {
-  "name": "mesaj-kutum-workspace",
+  "name": "ngx-mail-box",
   "version": "1.0.0",
-  "private": true,
-  "description": "Angular tabanlı, Gmail tarzı mesajlaşma kutusu kütüphanesi",
+  "description": "Angular Gmail-like Threaded Messaging Box Component Library",
   "scripts": {
     "build": "ng build ngx-mail-box",
     "watch": "ng build ngx-mail-box --watch --configuration development",
     "test": "ng test"
   },
+  "keywords": [
+    "angular",
+    "mailbox",
+    "messaging",
+    "threads",
+    "chat",
+    "standalone"
+  ],
+  "peerDependencies": {
+    "@angular/common": "^19.0.0",
+    "@angular/core": "^19.0.0",
+    "@angular/forms": "^19.0.0",
+    "rxjs": "^7.8.0"
+  },
   "dependencies": {
-    "@angular/common": "^19.1.0",
-    "@angular/compiler": "^19.1.0",
-    "@angular/core": "^19.1.0",
-    "@angular/forms": "^19.1.0",
-    "rxjs": "~7.8.0",
-    "tslib": "^2.3.0",
-    "zone.js": "~0.15.0"
+    "tslib": "^2.3.0"
   },
   "devDependencies": {
     "@angular-devkit/build-angular": "^19.1.6",
     "@angular/cli": "^19.1.6",
+    "@angular/common": "^19.1.0",
+    "@angular/compiler": "^19.1.0",
     "@angular/compiler-cli": "^19.1.6",
+    "@angular/core": "^19.1.0",
+    "@angular/forms": "^19.1.0",
+    "@types/jasmine": "^7.0.0",
     "ng-packagr": "^19.1.0",
-    "typescript": "~5.7.2"
-  }
+    "rxjs": "~7.8.0",
+    "typescript": "~5.7.2",
+    "zone.js": "~0.15.0"
+  },
+  "sideEffects": false,
+  "license": "MIT"
 }

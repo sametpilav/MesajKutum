@@ -26,7 +26,7 @@ import {
   NgxMailDockedPopupComponent, 
   MailUser, 
   MailThemeConfig 
-} from './projects/ngx-mail-box/src/public-api';
+} from 'ngx-mail-box'; // veya yerel geliştirme için './src/public-api'
 
 @Component({
   selector: 'app-root',
@@ -103,7 +103,7 @@ import {
   StartThreadPayload, 
   ConnectionStatus,
   backoffRetry 
-} from './projects/ngx-mail-box/src/public-api';
+} from 'ngx-mail-box'; // veya yerel geliştirme için './src/public-api'
 
 @Injectable({ providedIn: 'root' })
 export class MyHttpMailStorageAdapter extends MailStorageAdapter {

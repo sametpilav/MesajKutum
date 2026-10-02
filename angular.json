@@ -1,25 +1,24 @@
 {
   "$schema": "./node_modules/@angular/cli/lib/config/schema.json",
   "version": 1,
-  "newProjectRoot": "projects",
   "projects": {
     "ngx-mail-box": {
       "projectType": "library",
-      "root": "projects/ngx-mail-box",
-      "sourceRoot": "projects/ngx-mail-box/src",
+      "root": "",
+      "sourceRoot": "src",
       "prefix": "ngx",
       "architect": {
         "build": {
           "builder": "@angular-devkit/build-angular:ng-packagr",
           "options": {
-            "project": "projects/ngx-mail-box/ng-package.json"
+            "project": "ng-package.json"
           },
           "configurations": {
             "production": {
-              "tsConfig": "projects/ngx-mail-box/tsconfig.lib.prod.json"
+              "tsConfig": "tsconfig.lib.json"
             },
             "development": {
-              "tsConfig": "projects/ngx-mail-box/tsconfig.lib.json"
+              "tsConfig": "tsconfig.lib.json"
             }
           },
           "defaultConfiguration": "production"

@@ -1,5 +1,5 @@
 import { ComponentFixture, TestBed, fakeAsync, tick } from '@angular/core/testing';
-import { of, throwError } from 'rxjs';
+import { of, throwError, defer, Observable } from 'rxjs';
 import { NgxMailBoxComponent } from '../components/mailbox-box/ngx-mail-box.component';
 import { MailboxThreadDetailComponent } from '../components/thread-detail/thread-detail.component';
 import { MailStorageAdapter } from '../adapters/mail-storage.adapter';
@@ -166,21 +166,19 @@ describe('NgxMailBox Component & Architecture Tests', () => {
     let attempts = 0;
     const retryDelays: number[] = [];
 
-    const faultyStream$ = of(null).pipe(
-      // İlk 2 denemede hata fırlat, 3. denemede başarılı ol
-      () => {
-        attempts++;
-        if (attempts < 3) {
-          return throwError(() => new Error('Simüle edilmiş ağ kesintisi'));
-        }
-        return of('Başarılı Veri');
-      },
+    const faultyStream$: Observable<string> = defer(() => {
+      attempts++;
+      if (attempts < 3) {
+        return throwError(() => new Error('Simüle edilmiş ağ kesintisi'));
+      }
+      return of('Başarılı Veri');
+    }).pipe(
       backoffRetry({ maxRetries: 3, initialDelayMs: 1000 }, (attempt, delayMs) => {
         retryDelays.push(delayMs);
       })
     );
 
-    let result: string | null = null;
+    let result = '';
     faultyStream$.subscribe(res => {
       result = res;
     });
